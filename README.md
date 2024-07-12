@@ -2,11 +2,73 @@
 
 Este es un proyecto de foro desarrollado con Spring Boot para el curso de Alura. El proyecto permite la gestión de tópicos, usuarios y respuestas mediante una API REST.
 
-# Requisitos
+# Configuración del Entorno
+## Instalación de Java y Herramientas Necesarias:
 
-- JDK 17
-- Maven 3.8.1 o superior
-- MySQL 8.0 o superior
+      -Java JDK (versión 17 en adelante)
+      -Maven (versión 4 en adelante)
+      -Spring Boot (versión 3 en adelante)
+      -MySQL (versión 8 en adelante)
+      -IDE (IntelliJ IDEA recomendado)
+
+## Configuración del Proyecto con Spring Initializr:
+
+      Accede a Spring Initializr.
+      Selecciona las siguientes opciones:
+      -Project: Maven
+      -Language: Java
+      -Spring Boot: 3.0.0 (o la más reciente)
+      -Packaging: Jar
+      -Java: 17
+
+## Dependencias a agregar:
+
+      -Lombok
+      -Spring Web
+      -Spring Boot DevTools
+      -Spring Data JPA
+      -Flyway Migration
+      -MySQL Driver
+      -Validation
+      -Spring Security
+
+# Diagrama de Base de Datos
+Diseña tu base de datos siguiendo el diagrama propuesto en el documento. Incluye las tablas necesarias para los tópicos, usuarios, etc. Utiliza herramientas como MySQL Workbench o DbDesigner para crear el modelo físico.
+
+# Crear la Base de Datos
+## Abrir MySQL Workbench:
+
+      -Si has instalado MySQL Workbench durante la instalación de MySQL, ábrelo. Si no, puedes descargarlo e instalarlo desde MySQL Workbench.
+
+## Conectar al Servidor MySQL:
+
+      -Abre MySQL Workbench y crea una nueva conexión con el servidor MySQL utilizando el usuario root y la contraseña que configuraste durante la instalación.
+      
+## Crear la Base de Datos:
+
+      Una vez conectado, abre una nueva pestaña de consulta SQL y ejecuta el siguiente comando para crear la base de datos:
+
+            CREATE DATABASE foro_db;
+         
+## Seleccionar la Base de Datos:
+
+      Selecciona la base de datos que acabas de crear ejecutando el siguiente comando:
+
+            USE foro_db;
+# Crear las Tablas
+## Crear la Tabla de Tópicos:
+      En la misma pestaña de consulta SQL, ejecuta el siguiente comando para crear la tabla topico:
+
+               CREATE TABLE topico (
+                   id BIGINT AUTO_INCREMENT PRIMARY KEY,
+                   titulo VARCHAR(255) NOT NULL,
+                   mensaje TEXT NOT NULL,
+                   fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                   status VARCHAR(50),
+                   autor VARCHAR(100),
+                   curso VARCHAR(100)
+               );
+
 
 # Configuración del Proyecto
 
